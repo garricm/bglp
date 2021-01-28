@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="patient">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="glucose_level">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="event">
+                <xs:complexType>
+                  <xs:attribute name="ts" type="xs:string" use="required" />
+                  <xs:attribute name="value" type="xs:unsignedByte" use="required" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="finger_stick">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="event">
+                <xs:complexType>
+                  <xs:attribute name="ts" type="xs:string" use="required" />
+                  <xs:attribute name="value" type="xs:unsignedByte" use="required" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="basal">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="event">
+                <xs:complexType>
+                  <xs:attribute name="ts" type="xs:string" use="required" />
+                  <xs:attribute name="value" type="xs:decimal" use="required" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="temp_basal">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="event">
+                <xs:complexType>
+                  <xs:attribute name="ts_begin" type="xs:string" use="required" />
+                  <xs:attribute name="ts_end" type="xs:string" use="required" />
+                  <xs:attribute name="value" type="xs:decimal" use="required" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="bolus">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="event">
+                <xs:complexType>
+                  <xs:attribute name="ts_begin" type="xs:string" use="required" />
+                  <xs:attribute name="ts_end" type="xs:string" use="required" />
+                  <xs:attribute name="type" type="xs:string" use="required" />
+                  <xs:attribute name="dose" type="xs:decimal" use="required" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="meal">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="event">
+                <xs:complexType>
+                  <xs:attribute name="ts" type="xs:string" use="required" />
+                  <xs:attribute name="type" type="xs:string" use="required" />
+                  <xs:attribute name="carbs" type="xs:unsignedByte" use="required" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="sleep">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="event">
+                <xs:complexType>
+                  <xs:attribute name="ts_begin" type="xs:string" use="required" />
+                  <xs:attribute name="ts_end" type="xs:string" use="required" />
+                  <xs:attribute name="quality" type="xs:unsignedByte" use="required" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="work">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="event">
+                <xs:complexType>
+                  <xs:attribute name="ts_begin" type="xs:string" use="required" />
+                  <xs:attribute name="ts_end" type="xs:string" use="required" />
+                  <xs:attribute name="intensity" type="xs:unsignedByte" use="required" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="stressors">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="event">
+                <xs:complexType>
+                  <xs:attribute name="ts" type="xs:string" use="required" />
+                  <xs:attribute name="type" type="xs:string" use="required" />
+                  <xs:attribute name="description" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="hypo_event">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="event">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="symptom">
+                      <xs:complexType>
+                        <xs:attribute name="name" type="xs:string" use="required" />
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="ts" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="illness" />
+        <xs:element name="exercise">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="event">
+                <xs:complexType>
+                  <xs:attribute name="ts" type="xs:string" use="required" />
+                  <xs:attribute name="intensity" type="xs:unsignedByte" use="required" />
+                  <xs:attribute name="type" type="xs:string" use="required" />
+                  <xs:attribute name="duration" type="xs:unsignedByte" use="required" />
+                  <xs:attribute name="competitive" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="basis_heart_rate" />
+        <xs:element name="basis_gsr">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="event">
+                <xs:complexType>
+                  <xs:attribute name="ts" type="xs:string" use="required" />
+                  <xs:attribute name="value" type="xs:decimal" use="required" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="basis_skin_temperature">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="event">
+                <xs:complexType>
+                  <xs:attribute name="ts" type="xs:string" use="required" />
+                  <xs:attribute name="value" type="xs:decimal" use="required" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="basis_air_temperature" />
+        <xs:element name="basis_steps" />
+        <xs:element name="basis_sleep">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="event">
+                <xs:complexType>
+                  <xs:attribute name="tbegin" type="xs:string" use="required" />
+                  <xs:attribute name="tend" type="xs:string" use="required" />
+                  <xs:attribute name="quality" type="xs:unsignedByte" use="required" />
+                  <xs:attribute name="type" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="acceleration">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="event">
+                <xs:complexType>
+                  <xs:attribute name="ts" type="xs:string" use="required" />
+                  <xs:attribute name="value" type="xs:decimal" use="required" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="id" type="xs:unsignedShort" use="required" />
+      <xs:attribute name="weight" type="xs:unsignedByte" use="required" />
+      <xs:attribute name="insulin_type" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
